@@ -6,7 +6,7 @@ const ItemSchema = new Schema({
   title: String,
   image: String,
   price: String,
-  desription: String,
+  description: String,
   email: String,
 });
 
