@@ -2,6 +2,7 @@
 import { useState } from "react";
 import { useRouter } from "next/navigation";
 import useAuth from "../../utils/useAuth";
+import ImgInput from "../.../components/ImgInput";
 
 const CreateItem = () => {
   const [title, setTitle] = useState("");
@@ -45,6 +46,7 @@ const CreateItem = () => {
     return (
       <div>
         <h1 className="page-title">아이템 작성</h1>
+        <ImgInput setImage={setImage} />
         <form onSubmit={handleSubmit}>
           <input
             value={title}
