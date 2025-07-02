@@ -10,7 +10,7 @@ const ImgInput = (props) => {
       data.append("upload_preset", "nextjs-book-fullstack-app-folder-v2");
       data.append("cloud_name", "dpocqrucp");
       const response = await fetch(
-        "httls://api.cloudinary.com/v1_1/dpocqrucp/image/upload",
+        "https://api.cloudinary.com/v1_1/dpocqrucp/image/upload",
         { method: "POST", body: data }
       );
       const jsonData = await response.json();
