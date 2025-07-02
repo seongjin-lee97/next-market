@@ -34,3 +34,5 @@ const ImgInput = (props) => {
     </div>
   );
 };
+
+export default ImgInput;
