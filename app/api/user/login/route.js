@@ -21,8 +21,6 @@ export async function POST(request) {
           .setExpirationTime("1d")
           .sign(secretKey);
 
-        console.log(token);
-
         return NextResponse.json({ message: "로그인 성공", token: token });
       } else {
         return NextResponse.json({

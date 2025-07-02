@@ -1,10 +1,9 @@
 import { NextResponse } from "next/server";
 import { jwtVerify } from "jose";
 
-export async function middleware() {
-  const token =
-    "eyJhbGciOiJIUzI1NiJ9.eyJlbWFpbCI6ImR1bW15QGdtYWlsLmNvbSIsImV4cCI6MTc1MDMxMjA3MX0.OhD7Kwhm8XD65LbozcdSvzLrCVuYsaEsvIbQDNvg-uM";
-  // const token = await request.headers.get("Authorization")?.split("")[1];
+export async function middleware(request) {
+  const token = await request.headers.get("Authorization")?.split(" ")[1];
+  // "eyJhbGciOiJIUzI1NiJ9.eyJlbWFpbCI6ImR1bW15QGdtYWlsLmNvbSIsImV4cCI6MTc1MDMxMjA3MX0.OhD7Kwhm8XD65LbozcdSvzLrCVuYsaEsvIbQDNvg-uM";
 
   if (!token) {
     return NextResponse.json({ message: "토큰이 없습니다." });
