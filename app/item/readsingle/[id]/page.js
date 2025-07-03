@@ -1,5 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
+import Head from "next/head";
 
 const getSingleItem = async (id) => {
   const response = await fetch(

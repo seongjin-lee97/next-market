@@ -1,5 +1,7 @@
 "use client";
 import { useState } from "react";
+import Head from "next/head";
+
 const Login = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
