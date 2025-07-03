@@ -2,6 +2,11 @@
 import { useState } from "react";
 import Head from "next/head";
 
+export const metadata = {
+  title: "로그인 페이지",
+  description: "Next Market 로그인 페이지입니다.",
+};
+
 const Login = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -33,10 +38,10 @@ const Login = () => {
 
   return (
     <div>
-      <Head>
+      {/* <Head>
         <title>로그인 페이지</title>
         <meta name="description" content="로그인 페이지입니다" />
-      </Head>
+      </Head> */}
       <h1 className="page-title">로그인</h1>
       <form onSubmit={handleSubmit}>
         <input
