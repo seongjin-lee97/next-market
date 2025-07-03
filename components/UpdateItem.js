@@ -10,6 +10,7 @@ const UpdateItem = ({ id }) => {
   const [image, setImage] = useState("");
   const [description, setDescription] = useState("");
   const [email, setEmail] = useState("");
+  const [loading, setLoading] = useState(false);
 
   const router = useRouter();
   const loginUserEmail = useAuth();
@@ -27,6 +28,7 @@ const UpdateItem = ({ id }) => {
       setImage(singleItem.image);
       setDescription(singleItem.description);
       setEmail(singleItem.email);
+      setLoading(true);
     };
 
     if (id) getSingleItem();
@@ -62,49 +64,53 @@ const UpdateItem = ({ id }) => {
       alert("아이템 수정 실패");
     }
   };
-  if (loginUserEmail === email) {
-    return (
-      <div>
-        <h1 className="page-title">아이템 수정</h1>
-        <form onSubmit={handleSubmit}>
-          <input
-            value={title}
-            onChange={(e) => setTitle(e.target.value)}
-            type="text"
-            name="title"
-            placeholder="아이템명"
-            required
-          />
-          <input
-            value={price}
-            onChange={(e) => setPrice(e.target.value)}
-            type="text"
-            name="price"
-            placeholder="가격"
-            required
-          />
-          <input
-            value={image}
-            onChange={(e) => setImage(e.target.value)}
-            type="text"
-            name="image"
-            placeholder="이미지"
-            required
-          />
-          <textarea
-            value={description}
-            onChange={(e) => setDescription(e.target.value)}
-            name="description"
-            rows={15}
-            placeholder="상품 설명"
-            required
-          />
-          <button>수정</button>
-        </form>
-      </div>
-    );
+  if (loading) {
+    if (loginUserEmail === email) {
+      return (
+        <div>
+          <h1 className="page-title">아이템 수정</h1>
+          <form onSubmit={handleSubmit}>
+            <input
+              value={title}
+              onChange={(e) => setTitle(e.target.value)}
+              type="text"
+              name="title"
+              placeholder="아이템명"
+              required
+            />
+            <input
+              value={price}
+              onChange={(e) => setPrice(e.target.value)}
+              type="text"
+              name="price"
+              placeholder="가격"
+              required
+            />
+            <input
+              value={image}
+              onChange={(e) => setImage(e.target.value)}
+              type="text"
+              name="image"
+              placeholder="이미지"
+              required
+            />
+            <textarea
+              value={description}
+              onChange={(e) => setDescription(e.target.value)}
+              name="description"
+              rows={15}
+              placeholder="상품 설명"
+              required
+            />
+            <button>수정</button>
+          </form>
+        </div>
+      );
+    } else {
+      return <h1>권한이 없습니다</h1>;
+    }
   } else {
-    return <h1>권한이 없습니다</h1>;
+    return <h1> 로딩 중...</h1>;
   }
 };
 
