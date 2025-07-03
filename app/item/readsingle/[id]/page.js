@@ -22,8 +22,10 @@ const ReadSingleItem = async (context) => {
   const singleItem = await getSingleItem(id);
   return (
     <div className="grid-container-si">
-      <title>{singleItem.title}</title>
-      <meta name="description" content={singleItem.description} />
+      <Head>
+        <title>{singleItem.title}</title>
+        <meta name="description" content={singleItem.description} />
+      </Head>
       <div>
         <Image
           src={singleItem.image}

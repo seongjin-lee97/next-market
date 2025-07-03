@@ -31,8 +31,10 @@ const Login = () => {
 
   return (
     <div>
-      <title>로그인 페이지</title>
-      <meta name="description" content="로그인 페이지입니다" />
+      <Head>
+        <title>로그인 페이지</title>
+        <meta name="description" content="로그인 페이지입니다" />
+      </Head>
       <h1 className="page-title">로그인</h1>
       <form onSubmit={handleSubmit}>
         <input
